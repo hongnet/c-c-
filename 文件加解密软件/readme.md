@@ -11,13 +11,14 @@ windows版本，使用MFC，c/c++编写，可以加密任意类型文件，可�
 
 ![](https://raw.githubusercontent.com/hongnet/c-c-/master/文件加解密软件/img/selectFile.PNG)
 
-3. 加密后
+3. 查看文件
+
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/文件加解密软件/img/fileNoOpen.PNG)
+
+4. 加密后
 
 ![](https://raw.githubusercontent.com/hongnet/c-c-/master/文件加解密软件/img/fileDecrypt.PNG)
 
-4. 查看文件
-
-![](https://raw.githubusercontent.com/hongnet/c-c-/master/文件加解密软件/img/fileNoOpen.PNG)
 
 5. 解密文件后
 
