@@ -1,17 +1,53 @@
 ﻿================================================================================
     MICROSOFT 基础类库 : testsystem1 项目概述
 ===============================================================================
+运行效果：
+1. 本软件中，登录注册模块是在软件初始化之前弹出的对话框，用户第一次使用
+本系统需要先注册账号，注册信息将保存在 MySql 数据库中，然后用户需进行登录
+操作，若账号不在数据库中，会提示账号不存在，用户需注册账号，若用户输入的
+密码错误，会提示用户密码错误，只有登录成功用户才可进入系统。
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/毕设主界面.PNG)
 
-应用程序向导已为您创建了此 testsystem1 应用程序。此应用程序不仅演示 Microsoft 基础类的基本使用方法，还可作为您编写应用程序的起点。
+2. 主界面
+采用 MFC 单文档视图模式，软件主界面需要展示 4 个视图窗口，
+因此需要进行 MFC 单文档的视图分割操作。 实 现 方 法 是 通过重载框架类
+CMainFrame 的成员函数 OnCreateClient，使用 MFC 中的 CSplitterWnd 类，利用
+CSplitterWnd 对象的 CreateStatic()和 CreateView()函数实现单文档窗口的分割，和窗
+口的填充。 根据不同需要将窗口分为垂直或水平的多个分割窗口。如图 5.2 所示，
+软件的主界面模块分割为四个小模块：参数设置模块，测试模型演示模块， 结果演
+示模块，提示模块，这四个模块分别对应类:CFormView 和 CEditView。
 
-本文件概要介绍组成 testsystem1 应用程序的每个文件的内容。
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/毕设主界面.PNG)
 
-testsystem1.vcxproj
-    这是使用应用程序向导生成的 VC++ 项目的主项目文件，其中包含生成该文件的 Visual C++ 的版本信息，以及有关使用应用程序向导选择的平台、配置和项目功能的信息。
+3. 参数设置后通过TeeChart将mysql中大量数据显示为二维图或三维图
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/二维图.PNG)
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/三维图.PNG)
 
-testsystem1.vcxproj.filters
-    这是使用“应用程序向导”生成的 VC++ 项目筛选器文件。它包含有关项目文件与筛选器之间的关联信息。在 IDE 中，通过这种关联，在特定节点下以分组形式显示具有相似扩展名的文件。例如，“.cpp”文件与“源文件”筛选器关联。
+4. 点击主界面“数据比较”模块后可在主界面上弹出另一对话框，运行算法后比较两种算法最优解个数
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/数据比较界面.PNG)
 
+
+CSeries.h CTChart.h
+    主界面右上视图使用TeeChart控件绘制三维图与二维图所需头文件。
+
+LOGINDLG.cpp LOGINDLG.h
+    主界面登录对话框类
+    
+LEFTTOP.cpp LEFTTOP.h
+    主界面左上视图类
+    
+leftdownv.cpp leftdownv.h
+    主界面左下视图类
+  
+rightdownv.cpp rightdownv.h
+    主界面右下信息提示框类
+ 
+RIGHTTOPVIEW.cpp RIGHTTOPVIEW.h
+    主界面右上显示三维图二维图类
+    
+datalist.cpp datalist.h
+    点击“数据比较后弹出对话框类”
+ 
 testsystem1.h
     这是应用程序的主头文件。
     其中包括其他项目特定的标头（包括 Resource.h），并声明 Ctestsystem1App 应用程序类。
@@ -19,16 +55,6 @@ testsystem1.h
 testsystem1.cpp
     这是包含应用程序类 Ctestsystem1App 的主应用程序源文件。
 
-testsystem1.rc
-    这是程序使用的所有 Microsoft Windows 资源的列表。它包括 RES 子目录中存储的图标、位图和光标。此文件可以直接在 Microsoft Visual C++ 中进行编辑。项目资源包含在 2052 中。
-
-res\testsystem1.ico
-    这是用作应用程序图标的图标文件。此图标包括在主资源文件 testsystem1.rc 中。
-
-res\testsystem1.rc2
-    此文件包含不在 Microsoft Visual C++ 中进行编辑的资源。您应该将不可由资源编辑器编辑的所有资源放在此文件中。
-
-/////////////////////////////////////////////////////////////////////////////
 
 对于主框架窗口：
     该项目包含一个标准的 MFC 接口。
@@ -37,55 +63,6 @@ MainFrm.h, MainFrm.cpp
     这些文件中包含框架类 CMainFrame，该类派生自
     CFrameWnd 并控制所有 SDI 框架功能。
 
-res\Toolbar.bmp
-    此位图文件用于为工具栏创建平铺图像。
-    初始工具栏和状态栏在 CMainFrame 类中构造。使用资源编辑器编辑此工具栏位图，并更新 testsystem1.rc 中的 IDR_MAINFRAME TOOLBAR 数组以添加工具栏按钮。
-/////////////////////////////////////////////////////////////////////////////
 
-应用程序向导创建一种文档类型和一个视图：
-
-testsystem1Doc.h、testsystem1Doc.cpp - 文档
-    这些文件包含 Ctestsystem1Doc 类。编辑这些文件以添加特殊文档数据并实现文件保存和加载（通过 Ctestsystem1Doc::Serialize）。
-
-testsystem1View.h、testsystem1View.cpp - 文档视图
-    这些文件包含 Ctestsystem1View 类。
-    Ctestsystem1View 对象用于查看 Ctestsystem1Doc 对象。
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////
-
-其他功能：
-
-ActiveX 控件
-    该应用程序包含对使用 ActiveX 控件的支持。
-
-打印和打印预览支持
-    应用程序向导通过从 MFC 库调用 CView 类中的成员函数生成代码，来处理打印、打印设置和打印预览命令。
-
-Windows 套接字
-    应用程序包含对通过 TCP/IP 网络建立通信的支持。
-
-/////////////////////////////////////////////////////////////////////////////
-
-其他标准文件:
-
-StdAfx.h, StdAfx.cpp
-    这些文件用于生成名为 testsystem1.pch 的预编译头 (PCH) 文件和名为 StdAfx.obj 的预编译类型文件。
-
-Resource.h
-    这是标准头文件，可用于定义新的资源 ID。Microsoft Visual C++ 将读取并更新此文件。
-
-testsystem1.manifest
-	Windows XP 使用应用程序清单文件来描述特定版本的并行程序集的应用程序依赖项。加载程序使用这些信息来从程序集缓存中加载相应的程序集，并保护其不被应用程序访问。应用程序清单可能会包含在内，以作为与应用程序可执行文件安装在同一文件夹中的外部 .manifest 文件进行重新分发，它还可能以资源的形式包含在可执行文件中。
-/////////////////////////////////////////////////////////////////////////////
-
-其他注释:
-
-应用程序向导使用“TODO:”来指示应添加或自定义的源代码部分。
-
-如果应用程序使用共享 DLL 中的 MFC，您将需要重新分发 MFC DLL。如果应用程序所使用的语言与操作系统的区域设置不同，则还需要重新分发相应的本地化资源 mfc110XXX.DLL。
-有关上述话题的更多信息，请参见 MSDN 文档中有关重新分发 Visual C++ 应用程序的部分。
 
 /////////////////////////////////////////////////////////////////////////////
