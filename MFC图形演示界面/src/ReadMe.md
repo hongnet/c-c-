@@ -6,7 +6,7 @@
 本系统需要先注册账号，注册信息将保存在 MySql 数据库中，然后用户需进行登录
 操作，若账号不在数据库中，会提示账号不存在，用户需注册账号，若用户输入的
 密码错误，会提示用户密码错误，只有登录成功用户才可进入系统。
-![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/毕设主界面.PNG)
+![](https://raw.githubusercontent.com/hongnet/c-c-/master/MFC图形演示界面/img/毕设登录界面.PNG)
 
 2. 主界面
 采用 MFC 单文档视图模式，软件主界面需要展示 4 个视图窗口，
