@@ -1,0 +1,170 @@
+shareMemory
+
+BOOL pplayerManager::GetProcessInfo(UI_PROCESS_INFO& ProcessInfo)
+{
+	LOG_INFO("m_csUUIDStr:%s", m_csUUIDStr.toStdString().c_str());
+	HANDLE mutex;
+	QString csMutex = m_csUUIDStr + "_Mutex_share";
+
+	mutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, LPCTSTR(csMutex.toLocal8Bit().constData()));
+	if (mutex == NULL)
+	{
+		mutex = CreateMutex(NULL, FALSE, LPCTSTR(csMutex.toLocal8Bit().constData()));
+	}
+	WaitForSingleObject(mutex, INFINITE);
+
+	QString strName = m_csUUIDStr + "_SharedMemery_Main";
+
+	HANDLE hFileMapping = CreateFileMapping(
+		INVALID_HANDLE_VALUE,
+		NULL,
+		PAGE_READWRITE,
+		0,
+		sizeof(UI_PROCESS_INFO),
+		LPCTSTR(strName.toLocal8Bit().constData()));
+	DWORD dwError = GetLastError();
+
+	if (!hFileMapping)
+	{
+		LOG_ERROR("Get MiniUI Index CreateFileMapping Fail");
+		ReleaseMutex(mutex);
+		return FALSE;
+	}
+
+	LPVOID	pBuf = MapViewOfFile(
+		hFileMapping,
+		FILE_MAP_ALL_ACCESS,
+		0,
+		0,
+		0);
+
+	if (!pBuf)
+	{
+		LOG_ERROR("Get MiniUI Index MapViewOfFile Fail");
+		ReleaseMutex(mutex);
+		return FALSE;
+	}
+
+	memcpy(&ProcessInfo, pBuf, sizeof(UI_PROCESS_INFO));
+
+	UnmapViewOfFile(pBuf);
+	ReleaseMutex(mutex);
+	return TRUE;
+}
+BOOL pplayerManager::SaveProcessInfo(HWND iHwnd)
+{
+	//LOG_INFO("iHwnd:%d", iHwnd);
+	//LOG_INFO("m_csUUIDStr:%s", m_csUUIDStr.toStdString().c_str());
+	HANDLE mutex;
+	QString csMutex = m_csUUIDStr + "_Mutex_share";
+
+	mutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, LPCTSTR(csMutex.toLocal8Bit().constData()));
+	if (mutex == NULL)
+	{
+		mutex = CreateMutex(NULL, FALSE, LPCTSTR(csMutex.toLocal8Bit().constData()));
+	}
+	WaitForSingleObject(mutex, INFINITE);
+
+	QString strName = m_csUUIDStr + "_SharedMemery_Main";
+	HANDLE hFileMapping = CreateFileMapping(
+		INVALID_HANDLE_VALUE,
+		NULL,
+		PAGE_READWRITE,
+		0,
+		sizeof(UI_PROCESS_INFO),
+		LPCTSTR(strName.toLocal8Bit().constData()));
+	DWORD dwError = GetLastError();
+
+	if (!hFileMapping)
+	{
+		LOG_ERROR("Get MiniUI Index CreateFileMapping Fail");
+		ReleaseMutex(mutex);
+		return FALSE;
+	}
+
+	LPVOID	pBuf = MapViewOfFile(
+		hFileMapping,
+		FILE_MAP_ALL_ACCESS,
+		0,
+		0,
+		0);
+
+	if (!pBuf)
+	{
+		LOG_ERROR("Get MiniUI Index MapViewOfFile Fail");
+		ReleaseMutex(mutex);
+		return FALSE;
+	}
+
+	UI_PROCESS_INFO processInfo;
+	memcpy(&processInfo, pBuf, sizeof(UI_PROCESS_INFO));
+	if (processInfo.PID >= 0)
+	{
+		TerminateExistProcessByID(processInfo.PID);
+	}
+	processInfo.PID = GetCurrentProcessId();
+	processInfo.hMainWnd = iHwnd;
+	//LOG_INFO("PID:%d", processInfo.PID);
+	//LOG_INFO("iHwnd:%d", iHwnd);
+	memcpy(pBuf, &processInfo, sizeof(UI_PROCESS_INFO));
+
+	UnmapViewOfFile(pBuf);
+	ReleaseMutex(mutex);
+	return TRUE;
+}
+
+void pplayerManager::TerminateExistProcessByID(int iID)
+{
+	HANDLE hProcess = OpenProcess(
+		PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_TERMINATE,
+		FALSE, iID);
+
+	TCHAR szProcessName[MAX_PATH];
+	ZeroMemory(szProcessName, MAX_PATH * sizeof(TCHAR));
+	if (hProcess)
+	{
+		HMODULE hMod = NULL;
+		DWORD dwTmp = 0;
+		if (EnumProcessModules(hProcess, &hMod, sizeof(hMod), &dwTmp))
+		{
+			GetModuleBaseNameW(hProcess, hMod, szProcessName, sizeof(szProcessName) / sizeof(TCHAR));
+			if (0 == _tcsicmp((char*)szProcessName, "btoolpplayer.exe"))
+			{
+				TerminateProcess(hProcess, 0);
+			}else{}
+		}
+	}
+
+}
+
+BOOL pplayerManager::ReleasePorcessInfo()
+{
+	LOG_INFO("m_csUUIDStr:%s", m_csUUIDStr.toStdString().c_str());
+	HANDLE mutex;
+	QString csMutex = m_csUUIDStr + "_Mutex_share";
+
+	mutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, LPCTSTR(csMutex.toLocal8Bit().constData()));
+	if (mutex == NULL)
+	{
+		mutex = CreateMutex(NULL, FALSE, LPCTSTR(csMutex.toLocal8Bit().constData()));
+	}
+	WaitForSingleObject(mutex, INFINITE);
+
+	QString strName = m_csUUIDStr + "_SharedMemery_Main";
+	HANDLE hFileMapping = CreateFileMapping(
+		INVALID_HANDLE_VALUE,
+		NULL,
+		PAGE_READWRITE,
+		0,
+		sizeof(UI_PROCESS_INFO),
+		LPCTSTR(strName.toLocal8Bit().constData()));
+	DWORD dwError = GetLastError();
+
+	if (hFileMapping)
+	{
+		CloseHandle(hFileMapping);
+	}
+
+	ReleaseMutex(mutex);
+	return TRUE;
+}
