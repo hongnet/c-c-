@@ -1,3 +1,20 @@
+//窗口置顶;
+void ShowTopWindows_Mini(bool bTop)
+{
+	if (bTop)
+	{
+		::SetWindowPos((HWND)g_pMiniWnd->winId(), HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+		::SetWindowPos((HWND)g_pMiniWnd->winId(), HWND_TOPMOST, g_pMiniWnd->x(), g_pMiniWnd->y(), g_pMiniWnd->width(), g_pMiniWnd->height(), SWP_SHOWWINDOW);
+	}
+	else
+	{
+		::SetWindowPos((HWND)g_pMiniWnd->winId(), HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+		::SetWindowPos((HWND)g_pMiniWnd->winId(), HWND_NOTOPMOST, g_pMiniWnd->x(), g_pMiniWnd->y(), g_pMiniWnd->width(), g_pMiniWnd->height(), SWP_SHOWWINDOW);
+		g_pMiniWnd->show();
+	}
+}
+
+
 shareMemory
 
 BOOL pplayerManager::GetProcessInfo(UI_PROCESS_INFO& ProcessInfo)
