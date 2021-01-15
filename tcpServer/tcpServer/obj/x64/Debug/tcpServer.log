@@ -1,0 +1,101 @@
+﻿  Validating architecture
+  Validating sources
+  Copying sources remotely to '192.168.119.128'
+  Starting remote build
+  Compiling sources:
+  dragonTest.cpp
+E:\c++\tcpServer\tcpServer\dragonTest.cpp(56,20): warning : unused variable ‘local’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\dragonTest.cpp(102,61): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\dragonTest.cpp(131,40): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+  main.cpp
+E:\c++\tcpServer\tcpServer\main.cpp(374): warning : "MAX_PORT" redefined [enabled by default]
+E:\c++\tcpServer\tcpServer\TcpServer.h(22): message : this is the location of the previous definition
+E:\c++\tcpServer\tcpServer\main.cpp(774,5): warning : multi-line comment [-Wcomment]
+E:\c++\tcpServer\tcpServer\main.cpp(787,3): warning : multi-line comment [-Wcomment]
+E:\c++\tcpServer\tcpServer\main.cpp(799,3): warning : multi-line comment [-Wcomment]
+E:\c++\tcpServer\tcpServer\main.cpp(953,2): warning : multi-line comment [-Wcomment]
+E:\c++\tcpServer\tcpServer\main.cpp(405,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\main.cpp(561,47): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(561,8): warning : unused variable ‘sLen’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\main.cpp(573,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\main.cpp(591,13): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(595,45): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(627,13): warning : conversion to ‘unsigned int’ alters ‘double’ constant value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(632,19): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(668,12): warning : conversion to ‘unsigned int’ alters ‘double’ constant value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(680,43): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(734,65): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(777,69): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(790,67): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(802,67): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(817,48): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(378,66): warning : conversion to ‘int’ from ‘__time_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(898,22): message : in expansion of macro ‘TIME_SUB_MS’
+E:\c++\tcpServer\tcpServer\main.cpp(987,37): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\main.cpp(942,1): warning : control reaches end of non-void function [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\main.cpp(395,12): warning : ‘int ntySetAlive(int)’ defined but not used [-Wunused-function]
+  tcpServer.cpp
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(47,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(58,49): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(64,19): warning : suggest parentheses around assignment used as truth value [-Wparentheses]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(73,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(110,56): warning : suggest parentheses around assignment used as truth value [-Wparentheses]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(181,8): warning : unused variable ‘fd’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(372,29): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(358,15): warning : unused variable ‘uA’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(359,6): warning : unused variable ‘b’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(407,21): warning : unused variable ‘events’ [-Wunused-variable]
+  TcpServerSrc.cpp
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(48,20): warning : unused variable ‘local’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(86,61): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(114,40): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(141,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(184,8): warning : unused variable ‘fd’ [-Wunused-variable]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(243,30): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(278,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(287,56): warning : suggest parentheses around assignment used as truth value [-Wparentheses]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(298,1): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(31,1): warning : control reaches end of non-void function [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(41,1): warning : control reaches end of non-void function [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(55,1): warning : control reaches end of non-void function [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(108,1): warning : control reaches end of non-void function [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(137,1): warning : control reaches end of non-void function [-Wreturn-type]
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(270,1): warning : control reaches end of non-void function [-Wreturn-type]
+  threadpool.cpp
+  Utils.cpp
+E:\c++\tcpServer\tcpServer\Utils.cpp(56,58): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\Utils.cpp(57,58): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\c++\tcpServer\tcpServer\Utils.cpp(58,38): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\c++\tcpServer\tcpServer\Utils.cpp(58,79): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+  Linking objects
+  /root/projects/tcpServer/obj/x64/Debug/main.o: In function `main':
+  /root/projects/tcpServer/main.cpp:944: multiple definition of `main'
+  /root/projects/tcpServer/obj/x64/Debug/dragonTest.o:/root/projects/tcpServer/dragonTest.cpp:189: first defined here
+  /root/projects/tcpServer/obj/x64/Debug/tcpServer.o: In function `main':
+  /root/projects/tcpServer/tcpServer.cpp:346: multiple definition of `main'
+  /root/projects/tcpServer/obj/x64/Debug/dragonTest.o:/root/projects/tcpServer/dragonTest.cpp:189: first defined here
+  /root/projects/tcpServer/obj/x64/Debug/TcpServerSrc.o:(.bss+0x0): multiple definition of `logFile'
+  /root/projects/tcpServer/obj/x64/Debug/dragonTest.o:/root/projects/tcpServer/dragonTest.cpp:34: first defined here
+  /root/projects/tcpServer/obj/x64/Debug/TcpServerSrc.o: In function `isListenFds(int, int*)':
+  /root/projects/tcpServer/TcpServerSrc.cpp:16: multiple definition of `isListenFds(int, int*)'
+  /root/projects/tcpServer/obj/x64/Debug/tcpServer.o:/root/projects/tcpServer/tcpServer.cpp:32: first defined here
+  /root/projects/tcpServer/obj/x64/Debug/TcpServerSrc.o: In function `setNonBlock(int)':
+  /root/projects/tcpServer/TcpServerSrc.cpp:26: multiple definition of `setNonBlock(int)'
+  /root/projects/tcpServer/obj/x64/Debug/dragonTest.o:/root/projects/tcpServer/dragonTest.cpp:34: first defined here
+  collect2: error: ld returned 1 exit status
+  
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\main.o : error : 
+E:\c++\tcpServer\tcpServer\main.cpp(944): error : multiple definition of `main'
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\dragonTest.o:\root\projects\tcpServer\dragonTest.cpp(189): error : first defined here
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\tcpServer.o : error : 
+E:\c++\tcpServer\tcpServer\tcpServer.cpp(346): error : multiple definition of `main'
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\dragonTest.o:\root\projects\tcpServer\dragonTest.cpp(189): error : first defined here
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\TcpServerSrc.o : error : multiple definition of `logFile'
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\dragonTest.o:\root\projects\tcpServer\dragonTest.cpp(34): error : first defined here
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\TcpServerSrc.o : error : 
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(16): error : multiple definition of `isListenFds(int, int*)'
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\tcpServer.o:\root\projects\tcpServer\tcpServer.cpp(32): error : first defined here
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\TcpServerSrc.o : error : 
+E:\c++\tcpServer\tcpServer\TcpServerSrc.cpp(26): error : multiple definition of `setNonBlock(int)'
+E:\c++\tcpServer\tcpServer\obj\x64\Debug\dragonTest.o:\root\projects\tcpServer\dragonTest.cpp(34): error : first defined here
+collect2 : error : ld returned 1 exit status
